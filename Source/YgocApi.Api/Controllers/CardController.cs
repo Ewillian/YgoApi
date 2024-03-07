@@ -2,10 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace YgocApi.Api.Controllers
 {
-    [ApiController]
-    [Route("ygoc/[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Produces("application/json")]
+    [Route("/Cards")]
+    public class CardController : Controller
     {
+        #region Contructors
+        
+        #endregion Contructors
+
+        #region Public methods
+
         [HttpGet("greet")]
         public IActionResult Greet()
         {
@@ -18,5 +24,7 @@ namespace YgocApi.Api.Controllers
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             return Ok(numbers);
         }
+
+        #endregion Public methods
     }
 }
