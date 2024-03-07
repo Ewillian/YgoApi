@@ -1,69 +1,75 @@
-﻿using Newtonsoft.Json;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace YgocApi.Infrastructure.Dtos;
+namespace YgocApi.Infrastructure.Daos;
 
 /// <summary>
 /// Defines the card dto
 /// </summary>
-public class CardDto
+public class CardDao
 {
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Card Number")]
+    [BsonElement("_id")]
+    public string CardId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [BsonElement("Card Number")]
     public string CardNumber { get; set; }
 
     /// <summary>
     /// Gets or sets the card name
     /// </summary>*
-    [JsonProperty("Card Name")]
+    [BsonElement("Card Name")]
     public string CardName { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Quantity")]
+    [BsonElement("Quantity")]
     public int TestPlanXray { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Set Code")]
+    [BsonElement("Set Code")]
     public string SetCode { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Set Name")]
+    [BsonElement("Set Name")]
     public string SetName { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Rarity")]
+    [BsonElement("Rarity")]
     public string Rarity { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Condition")]
+    [BsonElement("Condition")]
     public string Condition { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Printing")]
+    [BsonElement("Printing")]
     public string Printing { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Language")]
+    [BsonElement("Language")]
     public string Language { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    [JsonProperty("Date Bought")]
+    [BsonElement("Date Bought")]
     public string DateBought { get; set; }
 }
