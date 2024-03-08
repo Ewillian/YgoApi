@@ -1,21 +1,28 @@
+using System.Net;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace YgocApi.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("/Cards")]
-    public class CardController : Controller
+    [Route("/card")]
+    public class CardController(ICardHandler cardHandler) : Controller
     {
-        #region Contructors
-        
-        #endregion Contructors
+        #region Fields
+
+        private readonly ICardHandler _cardHandler = cardHandler ?? throw new ArgumentNullException(nameof(cardHandler));
+
+        #endregion Fields
 
         #region Public methods
 
-        [HttpGet("greet")]
-        public IActionResult Greet()
+        [ProducesResponseType(typeof(GetCardResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
+        [HttpGet("/{cardId}", Name = nameof(GetCard))]
+        public IActionResult GetCard(string cardId)
         {
-            return Ok("Hello, Playwright!");
+            return Ok(cardId);
         }
 
         [HttpGet("numbers")]

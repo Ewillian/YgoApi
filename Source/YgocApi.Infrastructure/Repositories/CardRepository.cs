@@ -1,15 +1,16 @@
 ﻿using Microsoft.Extensions.Options;
 
-using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 
 using YgocApi.Domain.Options;
-using YgocApi.Infrastructure.Dtos;
+using YgocApi.Infrastructure.Abstractions;
+using YgocApi.Infrastructure.Daos;
 
 namespace YgocApi.Infrastructure.Repositories;
 
-public partial class CardRepository
+public partial class CardRepository : ICardRepository
 {
     #region Fields
 
